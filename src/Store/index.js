@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 //import { makeStyles } from '@mui/styles';
 import SelectVariants from '../Dropdown';
 import { useEffect } from 'react';
-import { Getfakestore, Gettodostore } from '../Constant/Api';
+import { Getfakestore } from '../Constant/Api';
 
 // const useStyles = makeStyles({
 //     root: {
@@ -19,15 +19,15 @@ import { Getfakestore, Gettodostore } from '../Constant/Api';
 const Store = () => {
     // const classes = useStyles();
     //fakestore
-    const getApiElement = "";
-    const [storedata, setstoredata] = useState([]);
+     const getApiElement = "";
+     const [storedata, setstoredata] = useState([]);
     //todoList
-    const getTodoElem = "";
-    const [tododata, setdatatodo] = useState([]);
-    
+    // const getTodoElem = "";
+    // const [tododata, setdatatodo] = useState([]);
+
     useEffect(() => {
         GetstoreAll();
-        GettodoAll();
+       // GettodoAll();
     }, []);
 
     //Fakestore API function
@@ -54,43 +54,44 @@ const Store = () => {
     }
 
     //TodoList API function
-    const GettodoAll = async () => {
-        let resp = await Gettodostore();
-        let dataReshapTodo = []
-        try {
-            debugger;
-            for (let i = 0; i < resp.data.length; i++) {
-                let object = {
-                    label: ""
-                }
-                object['label'] = resp.data[i].title;
-                dataReshapTodo.push(object)
-            }
-        }
-        catch (e) {
+    // const GettodoAll = async () => {
+    //     let resp = await Gettodostore();
+    //     let dataReshapTodo = []
+    //     try {
+    //         debugger;
+    //         for (let i = 0; i < resp.data.length; i++) {
+    //             let object = {
+    //                 label: ""
+    //             }
+    //             object['label'] = resp.data[i].title;
+    //             dataReshapTodo.push(object)
+    //         }
+    //     }
+    //     catch (e) {
 
-        }
-        setdatatodo([...dataReshapTodo]);
-        console.log(resp);
+    //     }
+    //     setdatatodo([...dataReshapTodo]);
+    //     console.log(resp);
 
-    }
+    // }
     console.log(storedata);
     return (
         <>
             {
-                storedata.length > 0 ? <SelectVariants label={'Fakestore'}
+                storedata.length > 0 ? <SelectVariants
+                label={'Fakestore'}
                     list={storedata}
-                    value={getApiElement}>
+                    value={getApiElement} >
                 </SelectVariants> : null
             }
 
-            {
+            {/* {
                 tododata.length > 0 ? <SelectVariants
                     label={'Todostore'}
                     list={tododata}
                     value={getTodoElem}>
                 </SelectVariants> : null
-            }
+            } */}
 
         </>
     );

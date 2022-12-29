@@ -26,6 +26,7 @@ export default function SelectVariants(props) {
       id="combo-box-demo"
       label={props.label}
       options={props.list}
+      value = {props.value}
       sx={{ width: 300 }}
       renderInput={(params) => <TextField {...params} label={props.label} />}
     />
